@@ -22,7 +22,7 @@ for (let i = 0; i < pieces.length; i++) {
     descriptionElement.innerText = article.description ?? "Pas de description pour le moment.";
     const stockElement = document.createElement("p");
     stockElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
-    
+
     // On rattache la balise article a la section Fiches
     sectionFiches.appendChild(pieceElement);
     // On rattache l’image à pieceElement (la balise article)
