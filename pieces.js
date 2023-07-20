@@ -22,7 +22,7 @@ for (let i = 0; i < pieces.length; i++) {
     descriptionElement.innerText = article.description ?? "Pas de description pour le moment.";
     const stockElement = document.createElement("p");
     stockElement.innerText = article.disponibilite ? "En stock" : "Rupture de stock";
-
+    
     // On rattache la balise article a la section Fiches
     sectionFiches.appendChild(pieceElement);
     // On rattache l’image à pieceElement (la balise article)
@@ -36,7 +36,7 @@ for (let i = 0; i < pieces.length; i++) {
 
  }
  
- //gestion des boutons 
+ //gestion des bouttons 
 const boutonTrier = document.querySelector(".btn-trier");
 
 boutonTrier.addEventListener("click", function () {
@@ -56,7 +56,9 @@ boutonFiltrer.addEventListener("click", function () {
    console.log(piecesFiltrees)
 });
 
+//Correction Exercice
 const boutonDecroissant = document.querySelector(".btn-decroissant");
+
 boutonDecroissant.addEventListener("click", function () {
     const piecesOrdonnees = Array.from(pieces);
     piecesOrdonnees.sort(function (a, b) {
@@ -66,28 +68,10 @@ boutonDecroissant.addEventListener("click", function () {
 });
 
 const boutonNoDescription = document.querySelector(".btn-nodesc");
+
 boutonNoDescription.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
-        return piece.description;
+        return piece.description
     });
-   console.log(piecesFiltrees);
+   console.log(piecesFiltrees)
 });
-
-const noms = pieces.map(piece => piece.nom);
-for(let i = pieces.length -1 ; i >= 0; i--){
-    if(pieces[i].prix > 35){
-        noms.splice(i,1);
-    }
-}
-
-//Création de la liste
-const abordablesElements = document.createElement('ul');
-//Ajout de chaque nom à la liste
-for(let i=0; i < noms.length ; i++){
-    const nomElement = document.createElement('li');
-    nomElement.innerText = noms[i];
-    abordablesElements.appendChild(nomElement)
-}
-// Ajout de l'en-tête puis de la liste au bloc résultats filtres
-document.querySelector('.abordables')
-    .appendChild(abordablesElements)
